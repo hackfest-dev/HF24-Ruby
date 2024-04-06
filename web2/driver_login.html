@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Login</title>
+    <!-- Your CSS styles -->
+</head>
+<body>
+    <div class="container">
+        <h1>Driver Login</h1>
+        <form id="loginForm" action="driver_login.php" method="POST">
+            <input type="text" name="phone" id="phone" placeholder="Phone Number" required><br>
+            <input type="password" name="password" id="password" placeholder="Password" required><br>
+            <input type="submit" value="Login" id="loginButton">
+        </form>
+    </div>
+    <!-- Your JavaScript code -->
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var form = event.target;
+            var phone = form.elements["phone"].value;
+            var password = form.elements["password"].value;
+
+            // Perform AJAX request to verify credentials
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "driver_login.php");
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    if (xhr.responseText.trim() === "success") {
+                        // Redirect to dashboard upon successful verification
+                        window.location.href = "driverdashboard.html";
+                    } else {
+                        // Display error message if verification fails
+                        alert("Incorrect phone number or password. Please try again.");
+                    }
+                } else {
+                    alert("Error occurred while processing the request.");
+                }
+            };
+            xhr.send("phone=" + encodeURIComponent(phone) + "&password=" + encodeURIComponent(password));
+        });
+    </script>
+</body>
+</html>
