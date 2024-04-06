@@ -1,4 +1,5 @@
 import 'package:ambulance/driver_signup.dart';
+import 'package:ambulance/v_signup.dart';
 import 'package:flutter/material.dart';
 
 
@@ -70,7 +71,10 @@ class SignUpScreen extends StatelessWidget {
               height: buttonHeight,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle volunteer button press
+                  Navigator.push(
+                   context,
+                     MaterialPageRoute(builder: (context) => Vsignup()),
+                );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,

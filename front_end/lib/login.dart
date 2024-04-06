@@ -1,7 +1,7 @@
 import 'package:ambulance/driver_login.dart';
+import 'package:ambulance/v_login.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -18,20 +18,20 @@ class LoginScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/siren.gif', // Replace 'assets/siren.gif' with the actual path to your GIF
-              width: 100, // Adjust size as needed
+              'assets/siren.gif',
+              width: 100,
               height: 100,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               width: buttonWidth,
               height: buttonHeight,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
-                   context,
-                     MaterialPageRoute(builder: (context) => driver_login()),
-                );
+                    context,
+                    MaterialPageRoute(builder: (context) => driver_login()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
@@ -48,13 +48,18 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               width: buttonWidth,
               height: buttonHeight,
               child: ElevatedButton(
-                onPressed: () {
-                  // Handle user button press
+                onPressed: () async {
+                  final url = Uri.parse("tel:108");
+                  if (await canLaunchUrl(url)) {
+                    await launchUrl(url);
+                  } else {
+                    throw 'Could not launch ambulance number';
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
@@ -71,13 +76,16 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               width: buttonWidth,
               height: buttonHeight,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle volunteer button press
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => VLogin()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
@@ -94,10 +102,10 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/signup');
+                Navigator.pushNamed(context, '/signup'); // Assuming a signup route exists
               },
               child: Text(
                 "Don't have an account? Create one",

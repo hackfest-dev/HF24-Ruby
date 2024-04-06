@@ -8,7 +8,7 @@ class driver_signup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hospital Driver Login'),
+        title: Text('Hospital Driver SignUp'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -74,7 +74,7 @@ class driver_signup extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  'Submit',
+                  'SignUp',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
