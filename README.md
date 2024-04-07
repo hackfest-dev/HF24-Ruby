@@ -40,6 +40,8 @@ Features:
   - Optimal Path :Utilizing the Google Maps API aids in swiftly reaching accident spots by providing real-time navigation assistance. By integrating this        API into emergency response systems, responders can access optimized routes based on current traffic conditions, reducing response times and reaching        accident locations faster. This technology enhances emergency services' efficiency, enabling them to provide timely assistance and potentially saving        lives.
     
   - Volunteer notification : Google Maps API facilitates the notification of volunteers located between the accident spot and the driver. Upon detecting an     accident, the system automatically identifies nearby volunteers and sends them notifications via email. This feature enables volunteers to offer             immediate assistance while emergency services are en route, enhancing the overall response time and potentially saving lives. Additionally, it fosters       community engagement and collaboration in emergency situations, reinforcing the importance of community involvement in providing timely support to those     in need.
+
+    
 How to run?
 
     - "main" is our main branch.Start running from Login.html
