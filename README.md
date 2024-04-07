@@ -43,8 +43,6 @@ Features:
 
     
 How to run?
-
-    - "main" is our main branch.Start running from Login.html
-    - Notification is run through sendMail.js
-    - Call through  quickcall.html
-    
+- "main" is our main branch.Start running from Login.html
+- Notification is run through sendMail.js
+- Call through  quickcall.html
