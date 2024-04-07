@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: #ff0000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Driver Login</h1>
+        <form id="loginForm" action="driver_login.php" method="POST">
+            <input type="text" name="phone" id="phone" placeholder="Phone Number" required><br>
+            <input type="password" name="password" id="password" placeholder="Password" required><br>
+            <input type="submit" value="Login" id="loginButton">
+        </form>
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var form = event.target;
+            var phone = form.elements["phone"].value;
+            var password = form.elements["password"].value;
+
+            // Perform AJAX request to verify credentials
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "driver_login.php");
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    if (xhr.responseText.trim() === "success") {
+                        // Redirect to dashboard upon successful verification
+                        window.location.href = "driverdashboard.html";
+                    } else {
+                        // Display error message if verification fails
+                        document.getElementById("errorMessage").innerText = "Incorrect phone number or password. Please try again.";
+                        document.getElementById("errorMessage").style.display = "block";
+                    }
+                } else {
+                    document.getElementById("errorMessage").innerText = "Error occurred while processing the request.";
+                    document.getElementById("errorMessage").style.display = "block";
+                }
+            };
+            xhr.send("phone=" + encodeURIComponent(phone) + "&password=" + encodeURIComponent(password));
+        });
+    </script>
+</body>
+</html>
