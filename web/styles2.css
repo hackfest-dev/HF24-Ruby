@@ -1,0 +1,38 @@
+/* styles.css */
+/* styles.css */
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Button styles */
+#callButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#callButton:hover {
+    background-color: #45a049;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 600px) {
+    #callButton {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
