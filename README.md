@@ -36,7 +36,7 @@ Use Cases:
 Features:
 
   - CPR certificate verification :We populated a database with simulated CPR certification data for verification purposes. CPR certification is crucial as       it ensures individuals possess the necessary skills to respond effectively in life-threatening situations, potentially saving lives by administering         cardiopulmonary resuscitation (CPR) until further medical help arrives. It signifies competency in basic life support techniques, including chest            compressions and rescue breathing, providing reassurance to employers, healthcare facilities, and the community that individuals are equipped to handle      emergencies.We implemented a system where every CPR certification is assigned a unique certificate ID. When verification is required, this ID is             inputted into the system to authenticate the certification's validity, ensuring accuracy and reliability in confirming individuals' CPR qualifications.
-  ![Alt text]("C:\Users\HP\Pictures\Screenshots\Screenshot (97).png")
+  ![Alt text](C:\Users\HP\Pictures\Screenshots\Screenshot (97).png)
     
   - Optimal Path :Utilizing the Google Maps API aids in swiftly reaching accident spots by providing real-time navigation assistance. By integrating this        API into emergency response systems, responders can access optimized routes based on current traffic conditions, reducing response times and reaching        accident locations faster. This technology enhances emergency services' efficiency, enabling them to provide timely assistance and potentially saving        lives.
     
